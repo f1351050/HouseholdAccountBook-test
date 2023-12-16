@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>レシート情報</title>
+</head>
+<body>
+	<table>
+		<tr th:each="receipt_info : ${receipt_infoList}" th:object="${receipt_info}">
+			<td th:text="*{kirokuNum}"></td>
+			<td th:text="*{hizuke}"></td>
+			<td th:text="*{tempo}"></td>
+			<td th:text="*{kingaku}"></td>
+		</tr>
+	</table>
+</body>
+</html>
