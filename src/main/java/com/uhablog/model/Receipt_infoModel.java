@@ -8,17 +8,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name="receipt_info")
+@NoArgsConstructor
 public class Receipt_infoModel {
 	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	//カラム値kirokuNum　なのだが　kioku_numで検索されてしまう
+	//そのため　kirokunum (nを小文字のままにした）
 	@Column(name="kirokunum")
-	private Integer kirokuNum;
+	private int kirokuNum;
 	
 	@Column(name="hizuke")
 	private Date hizuke;
@@ -27,5 +31,11 @@ public class Receipt_infoModel {
 	private String tempo;
 	
 	@Column(name="kingaku")
-	private String kingaku;
+	private int kingaku;
+	
+	public Receipt_infoModel(Date hizuke,String tempo,int kingaku) {
+		this.hizuke = hizuke;
+		this.tempo = tempo;
+		this.kingaku = kingaku;
+	}
 }

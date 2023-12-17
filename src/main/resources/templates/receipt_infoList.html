@@ -5,6 +5,10 @@
 <title>レシート情報</title>
 </head>
 <body>
+	<form th:action="@{receipt_infoList}" method="post">
+			<input type="submit" value="取得">
+	</form>
+	<!--<a href="javascript:submitFnc();">submit</a>-->
 	<table>
 		<tr th:each="receipt_info : ${receipt_infoList}" th:object="${receipt_info}">
 			<td th:text="*{kirokuNum}"></td>
@@ -13,5 +17,6 @@
 			<td th:text="*{kingaku}"></td>
 		</tr>
 	</table>
+	
 </body>
 </html>
